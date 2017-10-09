@@ -1,0 +1,7 @@
+c:\users\administrator\documents\visual studio 2010\Projects\GitBranchMerge\GitBranchMerge\bin\Debug\GitBranchMerge.exe
+c:\users\administrator\documents\visual studio 2010\Projects\GitBranchMerge\GitBranchMerge\bin\Debug\GitBranchMerge.pdb
+c:\users\administrator\documents\visual studio 2010\Projects\GitBranchMerge\GitBranchMerge\obj\x86\Debug\GitBranchMerge.MainForm.resources
+c:\users\administrator\documents\visual studio 2010\Projects\GitBranchMerge\GitBranchMerge\obj\x86\Debug\GitBranchMerge.Properties.Resources.resources
+c:\users\administrator\documents\visual studio 2010\Projects\GitBranchMerge\GitBranchMerge\obj\x86\Debug\GitBranchMerge.csproj.GenerateResource.Cache
+c:\users\administrator\documents\visual studio 2010\Projects\GitBranchMerge\GitBranchMerge\obj\x86\Debug\GitBranchMerge.exe
+c:\users\administrator\documents\visual studio 2010\Projects\GitBranchMerge\GitBranchMerge\obj\x86\Debug\GitBranchMerge.pdb
