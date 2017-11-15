@@ -44,6 +44,9 @@
             this.tb_sysinfo = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label_test_cloud = new System.Windows.Forms.Label();
+            this.tb_cloud_test = new System.Windows.Forms.TextBox();
+            this.btn_default = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,6 +131,9 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btn_default);
+            this.panel1.Controls.Add(this.tb_cloud_test);
+            this.panel1.Controls.Add(this.label_test_cloud);
             this.panel1.Controls.Add(this.tb_cloud);
             this.panel1.Controls.Add(this.label_cloud);
             this.panel1.Controls.Add(this.label_sysinfo);
@@ -164,7 +170,7 @@
             // label_sysinfo
             // 
             this.label_sysinfo.AutoSize = true;
-            this.label_sysinfo.Location = new System.Drawing.Point(30, 126);
+            this.label_sysinfo.Location = new System.Drawing.Point(30, 155);
             this.label_sysinfo.Name = "label_sysinfo";
             this.label_sysinfo.Size = new System.Drawing.Size(41, 12);
             this.label_sysinfo.TabIndex = 9;
@@ -174,12 +180,12 @@
             // 
             this.tb_sysinfo.BackColor = System.Drawing.SystemColors.WindowText;
             this.tb_sysinfo.ForeColor = System.Drawing.Color.Lime;
-            this.tb_sysinfo.Location = new System.Drawing.Point(77, 126);
+            this.tb_sysinfo.Location = new System.Drawing.Point(77, 151);
             this.tb_sysinfo.Multiline = true;
             this.tb_sysinfo.Name = "tb_sysinfo";
             this.tb_sysinfo.ReadOnly = true;
             this.tb_sysinfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_sysinfo.Size = new System.Drawing.Size(378, 321);
+            this.tb_sysinfo.Size = new System.Drawing.Size(378, 296);
             this.tb_sysinfo.TabIndex = 8;
             // 
             // linkLabel1
@@ -203,6 +209,32 @@
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "ReadMe";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // label_test_cloud
+            // 
+            this.label_test_cloud.AutoSize = true;
+            this.label_test_cloud.Location = new System.Drawing.Point(19, 126);
+            this.label_test_cloud.Name = "label_test_cloud";
+            this.label_test_cloud.Size = new System.Drawing.Size(53, 12);
+            this.label_test_cloud.TabIndex = 12;
+            this.label_test_cloud.Text = "云测试：";
+            // 
+            // tb_cloud_test
+            // 
+            this.tb_cloud_test.Location = new System.Drawing.Point(77, 127);
+            this.tb_cloud_test.Name = "tb_cloud_test";
+            this.tb_cloud_test.Size = new System.Drawing.Size(279, 21);
+            this.tb_cloud_test.TabIndex = 13;
+            // 
+            // btn_default
+            // 
+            this.btn_default.Location = new System.Drawing.Point(370, 126);
+            this.btn_default.Name = "btn_default";
+            this.btn_default.Size = new System.Drawing.Size(75, 23);
+            this.btn_default.TabIndex = 14;
+            this.btn_default.Text = "默认参数";
+            this.btn_default.UseVisualStyleBackColor = true;
+            this.btn_default.Click += new System.EventHandler(this.btn_default_Click);
             // 
             // MainForm
             // 
@@ -240,6 +272,9 @@
         private System.Windows.Forms.TextBox tb_cloud;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label_test_cloud;
+        private System.Windows.Forms.TextBox tb_cloud_test;
+        private System.Windows.Forms.Button btn_default;
     }
 }
 

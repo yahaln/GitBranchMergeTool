@@ -28,6 +28,8 @@ namespace GitBranchMerge
 
         private static String cd_git_cmit = "git commit ";
 
+        private static String cmd_echo = "echo ";
+
         private delegate void FlushClient();//代理
 
         public MainForm()
@@ -39,6 +41,7 @@ namespace GitBranchMerge
             Win32Utility.SetCueText(tb_src,"请输入开发分支名");
             Win32Utility.SetCueText(tb_target, "请输入主分支名");
             Win32Utility.SetCueText(tb_cloud, "请输入云分支名");
+            Win32Utility.SetCueText(tb_cloud_test, "请输入云测试分支名");
             this.linkLabel1.Links.Add(0, this.linkLabel1.Text.Length, @"https://yahaln.github.io/index.html");
             this.linkLabel2.Links.Add(0, this.linkLabel2.Text.Length, @"https://yahaln.github.io/index.html"); 
         }
@@ -125,6 +128,8 @@ namespace GitBranchMerge
             string _branch_target = this.tb_target.Text.Trim();
             //云分支
             string _branch_cloud = this.tb_cloud.Text.Trim();
+            //云测试分支
+            string _branch_cloud_test = this.tb_cloud_test.Text.Trim();
             //:的位置
             int _index = _projectPath.IndexOf(":");
             ///形如d:
@@ -153,6 +158,7 @@ namespace GitBranchMerge
                 //执行拉取命令
                 p.StandardInput.WriteLine(cd_git_pull);
                 //---------------------------主start---------------------------------
+                p.StandardInput.WriteLine(cmd_echo + "====>" + _branch_target + "<====");
                 //切换到主分支
                 p.StandardInput.WriteLine(cd_git_switch + _branch_target);
                 //执行拉取命令
@@ -167,8 +173,9 @@ namespace GitBranchMerge
 
 
                 //---------------------------云start---------------------------------
-                if (string.IsNullOrEmpty(_branch_cloud))
+                if (!string.IsNullOrEmpty(_branch_cloud))
                 {
+                    p.StandardInput.WriteLine(cmd_echo + "====>" + _branch_cloud + "<====");
                     //切换到云分支
                     p.StandardInput.WriteLine(cd_git_switch + _branch_cloud);
                     //执行拉取命令
@@ -181,6 +188,22 @@ namespace GitBranchMerge
                     p.StandardInput.WriteLine(cd_git_push);
                 }
                 //---------------------------云end---------------------------------
+                //---------------------------云测试start---------------------------------
+                if (!string.IsNullOrEmpty(_branch_cloud_test))
+                {
+                    p.StandardInput.WriteLine(cmd_echo + "====>" + _branch_cloud_test + "<====");
+                    //切换到云分支
+                    p.StandardInput.WriteLine(cd_git_switch + _branch_cloud_test);
+                    //执行拉取命令
+                    p.StandardInput.WriteLine(cd_git_pull);
+                    //执行合并命令（主分支合并到云分支）
+                    p.StandardInput.WriteLine(cd_git_merge + _branch_target);
+                    //执行本地提交命令
+                    p.StandardInput.WriteLine(cd_git_cmit);
+                    //将本地修改缓存推到服务器上
+                    p.StandardInput.WriteLine(cd_git_push);
+                }
+                //---------------------------云测试end---------------------------------
                 //切换到开发分支
                 p.StandardInput.WriteLine(cd_git_switch + _branch_src);
                 //执行查看状态命令
@@ -238,6 +261,25 @@ namespace GitBranchMerge
                 MessageBox.Show("没有链接地址！");
             else
                 System.Diagnostics.Process.Start("iexplore.exe", targetUrl); 
+        }
+
+        private void btn_default_Click(object sender, EventArgs e)
+        {
+            ////git工程目录
+            //string _projectPath = this.tb_project_path.Text.Trim();
+            ////开发分支
+            //string _branch_src = this.tb_src.Text.Trim();
+            ////主分支
+            //string _branch_target = this.tb_target.Text.Trim();
+            ////云分支
+            //string _branch_cloud = this.tb_cloud.Text.Trim();
+            ////云测试分支
+            //string _branch_cloud_test = this.tb_cloud_test.Text.Trim();
+            this.tb_project_path.Text = @"D:\workspace_sts\api-ecpw";
+            this.tb_src.Text = @"dev";
+            this.tb_target.Text = @"master";
+            this.tb_cloud.Text = @"cloud";
+            this.tb_cloud_test.Text = @"bcloud_test";
         }
     }
 }
